@@ -17,6 +17,7 @@ const styles = StyleSheet.create({
         backgroundColor: colors.teal600,
         width: 250,
         height: 40,
+        justifyContent: 'center',
         shadowColor: "#000000",
         shadowOffset:{
           width: 3,
