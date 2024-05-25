@@ -18,16 +18,16 @@ const styles = StyleSheet.create({
         width: 250,
         height: 40,
         justifyContent: 'center',
-        shadowColor: "#000000",
+        shadowColor: colors.platinum,
         shadowOffset:{
-          width: 3,
-          height: 3,
+          width: 5,
+          height: 5,
         },
         shadowOpacity: 0.27,
         shadowRadius: 4.65,
-        elevation: 6,
-        marginBottom: 10,
-        marginTop: 10,
+        elevation: 4,
         marginRight: 10,
+        justifyContent: 'center',
+        alignItems: 'center',
     }
 })
