@@ -1,42 +1,41 @@
-import { FlatList, Pressable, StyleSheet, Text, View } from 'react-native'
-import React from 'react'
-import CartData from '../data/cart.json'
-import CartItem from '../components/CartItem';
-import { Colors } from 'react-native/Libraries/NewAppScreen';
+import { FlatList, Pressable, StyleSheet, Text, View } from "react-native"
+import React from "react"
+import CartItem from "../components/CartItem"
+import { useSelector } from "react-redux"
+import { usePostOrderMutation } from "../services/shopService"
+
+
 
 const Cart = () => {
-    // console.log(CartData);
-    const total = CartData.reduce((acumulador, currentItem) => acumulador += currentItem.price * currentItem.quantity, 0)
+ 
+    const {items: CartData, total} = useSelector(state => state.cart.value)
 
-    let total2 = 0
-    for (const currentItem of CartData) {
-        console.log(currentItem.id);
-        total2 += currentItem.price * currentItem.quantity
+    const [triggerPostOrder, result] = usePostOrderMutation()
+   
+
+    const onConfirmOrder = () => {
+        triggerPostOrder({items: CartData, user: 'Rafael', total})
     }
-    
+
+    console.log(result);
+
     return (
-    <View style={styles.container}>
-        <FlatList
-            data={CartData}
-            keyExtractor={pepe => pepe.id}
-            renderItem={({item})=> {
-                return (
-                    <CartItem
-                        cartItem={item}
-                    />
-                )
-            }}
-        />
-        <View style={styles.totalContainer}>
-            <Pressable>
-                <Text>
-                    Confirm
-                </Text>
-            </Pressable>
-            <Text>Total: ${total}</Text>
+        <View style={styles.container}>
+            <FlatList
+                data={CartData}
+                keyExtractor={(pepe) => pepe.id}
+                renderItem={({ item }) => {
+                    return <CartItem cartItem={item} />
+                }}
+            />
+            <View style={styles.totalContainer}>
+                <Pressable onPress={onConfirmOrder}>
+                    <Text>Confirm</Text>
+                </Pressable>
+                <Text>Total: ${total}</Text>
+            </View>
         </View>
-    </View>
-  )
+    )
 }
 
 export default Cart

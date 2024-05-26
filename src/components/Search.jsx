@@ -32,6 +32,7 @@ const Search = ({ onSearch = () => {}, error = "", goBack = () => {} }) => {
   )
 }
 
+
 export default Search
 
 const styles = StyleSheet.create({
