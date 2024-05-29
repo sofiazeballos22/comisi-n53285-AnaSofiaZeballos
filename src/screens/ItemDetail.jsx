@@ -7,15 +7,15 @@ import {
   useWindowDimensions
 } from "react-native"
 import React, { useEffect, useState } from "react"
-// import allProducts from "../data/products.json"
 import { useGetProductByIdQuery } from "../services/shopService"
 import { useDispatch } from "react-redux"
 import { addCartItem } from "../features/Cart/cartSlice"
+import { Colors } from "react-native/Libraries/NewAppScreen"
+import { colors } from "../constants/colors"
 
 const ItemDetail = ({ route, navigation }) => {
 
   const dispatch = useDispatch()
-  // const [product, setProduct] = useState(null)
   const [orientation, setOrientation] = useState("portrait")
   const { width, height } = useWindowDimensions()
 
@@ -31,13 +31,6 @@ const ItemDetail = ({ route, navigation }) => {
     else setOrientation("portrait")
   }, [width, height])
 
-  /* useEffect(() => {
-    //Encontrar el producto por su id
-    const productSelected = allProducts.find(
-      (product) => product.id === idSelected
-    )
-    setProduct(productSelected)
-  }, [idSelected]) */
 
   const handleAddCart = () => {
     dispatch(addCartItem({...product, quantity: 1}))
