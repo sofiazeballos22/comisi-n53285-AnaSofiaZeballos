@@ -10,8 +10,8 @@ import React, { useEffect, useState } from "react"
 import { useGetProductByIdQuery } from "../services/shopService"
 import { useDispatch } from "react-redux"
 import { addCartItem } from "../features/Cart/cartSlice"
-import { Colors } from "react-native/Libraries/NewAppScreen"
-import { colors } from "../constants/colors"
+//import { Colors } from "react-native/Libraries/NewAppScreen"
+//import { colors } from "../constants/colors"
 
 const ItemDetail = ({ route, navigation }) => {
 
