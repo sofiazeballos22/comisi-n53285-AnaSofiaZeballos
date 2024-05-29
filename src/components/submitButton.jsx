@@ -24,7 +24,7 @@ const styles = StyleSheet.create({
     },
     text: {
         color: colors.platinum,
-        fontFamily: 'PlayFair',
+        fontFamily: '',
         fontSize: 22
     },
 });

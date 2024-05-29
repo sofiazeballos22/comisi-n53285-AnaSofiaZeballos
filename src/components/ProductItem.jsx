@@ -43,7 +43,7 @@ const styles = StyleSheet.create({
   },
   additionalStylesCard: {
     height: 120,
-    width: 300,
+    width: "100%",
     margin: 10,
   },
   textCategory: {
