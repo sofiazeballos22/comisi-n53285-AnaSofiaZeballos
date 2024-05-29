@@ -15,8 +15,6 @@ const ImageSelector = ({ navigation }) => {
 
     const {localId} = useSelector(state => state.auth.value)
 
-    console.log(localId);
-
     const dispatch = useDispatch()
 
    
@@ -47,7 +45,7 @@ const ImageSelector = ({ navigation }) => {
             }
             
         } catch (error) {
-            console.log(error);
+            //console.log(error);
         }
 
     };
@@ -58,7 +56,7 @@ const ImageSelector = ({ navigation }) => {
             triggerPostImage({image, localId})
             navigation.goBack()
         } catch (error) {
-            console.log(error);
+            //console.log(error);
         }
     };
 

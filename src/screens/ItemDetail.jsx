@@ -10,8 +10,8 @@ import React, { useEffect, useState } from "react"
 import { useGetProductByIdQuery } from "../services/shopService"
 import { useDispatch } from "react-redux"
 import { addCartItem } from "../features/Cart/cartSlice"
+import { colors } from "../constants/colors"
 //import { Colors } from "react-native/Libraries/NewAppScreen"
-//import { colors } from "../constants/colors"
 
 const ItemDetail = ({ route, navigation }) => {
 
@@ -38,7 +38,7 @@ const ItemDetail = ({ route, navigation }) => {
 
   return (
     <View>
-      <Button onPress={() => navigation.goBack()} title="Go back" />
+      <Button color="#436850" onPress={() => navigation.goBack()} title="Go back"/>
       {product ? (
         <View
           style={
@@ -53,10 +53,10 @@ const ItemDetail = ({ route, navigation }) => {
             resizeMode="cover"
           />
           <View style={orientation === "portrait" ? styles.textContainer : styles.textContainerLandscape}>
-            <Text>{product.title}</Text>
-            <Text>{product.description}</Text>
+            <Text style={styles.title}>{product.title}</Text>
+            <Text style={styles.description}>{product.description}</Text>
             <Text style={styles.price}>${product.price}</Text>
-            <Button title="Add cart" onPress={handleAddCart}></Button>
+            <Button color="#436850" title="Add cart" onPress={handleAddCart}></Button>
           </View>
         </View>
       ) : null}
@@ -91,8 +91,18 @@ const styles = StyleSheet.create({
   textContainer: {
     flexDirection: "column",
     width: '100%',
+    padding: 5,
   },
-
+  title: {
+    fontWeight: 'bold',
+    fontSize: 18,
+    marginTop: 5,
+    fontFamily: '',
+  },
+  description: {
+    fontSize: 15,
+    padding: 10,
+  },
   textContainerLandscape: {
     width: '50%',
     flexDirection: 'column',
